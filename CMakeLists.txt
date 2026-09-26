@@ -18,27 +18,27 @@ enable_testing()
 
 # --- Библиотека классов ---
 add_library(turing_core
-    STATE/state.cpp
-    TAPE/tape.cpp
-    MACHINELOGIC/machinelogic.cpp
+    ppois1_TuringMachine/STATE/state.cpp
+    ppois1_TuringMachine/TAPE/tape.cpp
+    ppois1_TuringMachine/MACHINELOGIC/machinelogic.cpp
 )
 target_include_directories(turing_core PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 # --- Консольная программа ---
-add_executable(turing_main main.cpp)
+add_executable(turing_main ppois1_TuringMachine/main.cpp)
 target_link_libraries(turing_main PRIVATE turing_core)
 
 # --- Тесты ---
-add_executable(state_tests STATE/stateTest.cpp)
+add_executable(state_tests ppois1_TuringMachine/STATE/stateTest.cpp)
 target_link_libraries(state_tests PRIVATE turing_core gtest )
 add_test(NAME state_tests COMMAND state_tests)
 
-add_executable(tape_tests TAPE/tapeTest.cpp)
+add_executable(tape_tests ppois1_TuringMachine/TAPE/tapeTest.cpp)
 target_link_libraries(tape_tests PRIVATE turing_core gtest )
 add_test(NAME tape_tests COMMAND tape_tests)
 
-add_executable(tm_tests MACHINELOGIC/machinelogicTest.cpp)
+add_executable(tm_tests ppois1_TuringMachine/MACHINELOGIC/machinelogicTest.cpp)
 target_link_libraries(tm_tests PRIVATE turing_core gtest )
 add_test(NAME tm_tests COMMAND tm_tests)

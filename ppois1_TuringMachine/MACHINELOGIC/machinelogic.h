@@ -2,8 +2,8 @@
 #include <map>
 #include <string>
 #include <vector>
-#include "STATE/state.h"
-#include "TAPE/tape.h"
+#include "ppois1_TuringMachine/STATE/state.h"
+#include "ppois1_TuringMachine/TAPE/tape.h"
 
 class TMLogic{
 private:

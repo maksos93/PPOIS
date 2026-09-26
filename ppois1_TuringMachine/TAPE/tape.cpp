@@ -44,7 +44,7 @@ void Tape::MoveLeft() {
 
 void Tape::MoveRight() {
     ++head;
-    if(head > cells.size()) cells.push_back(blank);
+    if(head >= cells.size()) cells.push_back(blank);
 };
 
 void Tape::SetHead(std::size_t pos){

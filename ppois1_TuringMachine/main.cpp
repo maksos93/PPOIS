@@ -1,8 +1,21 @@
 #include <iostream>
 #include <limits>
 #include <string>
+#ifdef _WIN32
+#define NOMINMAX
+#include <windows.h>
+#endif
+
 
 #include "MACHINELOGIC/machinelogic.h"
+
+static void setupConsole() {
+#ifdef _WIN32
+    SetConsoleOutputCP(CP_UTF8);   // вывод в UTF-8
+    SetConsoleCP(CP_UTF8);         // ввод в UTF-8
+#endif
+}
+
 
 static void clearInput() {
     std::cin.clear();
@@ -52,6 +65,8 @@ static TMLogic makeExample() {
 }
 
 int main() {
+    setupConsole();
+
     TMLogic tm;
 
     while (true) {
