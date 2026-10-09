@@ -1,0 +1,6 @@
+out/
+docs/
+.vs/
+*.user
+doxygen_log.txt
+Doxyfile.bak
